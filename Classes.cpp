@@ -65,6 +65,7 @@ class reservationReport {
     }
 };
 
+// Marion Debon
 class Account
 {
     public:
@@ -101,6 +102,7 @@ class Account
 
 };
 
+// Marion Debon
 class SignUp
 {
     public:
@@ -129,6 +131,7 @@ class SignUp
         }
 };
 
+// Marion Debon
 class Login
 {
     public:
