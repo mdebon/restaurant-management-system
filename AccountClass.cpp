@@ -7,14 +7,14 @@ using namespace std;
 
 class Account
 {
-    private:
+    public:
         int permissionLevel;
         string emailAddress;
         string password;
         string name;
         string phoneNumber;
         int zipCode;
-    public:
+
         // This method creates a new account with the information entered by the user.
         // It stores the information in a textfile so the user can login later.
         void createAccount(string email, string pw, string n, string phone, int zip)
