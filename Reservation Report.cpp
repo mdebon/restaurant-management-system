@@ -5,7 +5,7 @@
 using namespace std;
 
 //function to show Account details
-void reservationReport() {
+class reservationReport {
 
 
     string name;
@@ -26,4 +26,4 @@ void reservationReport() {
 
     system("pause");
 
-}
+};
