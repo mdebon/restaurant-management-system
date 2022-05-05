@@ -137,13 +137,12 @@ class Login
     public:
         //The method login() asks the user to enter their email and password until
         //their email and password match.
-        void login()
+        string login()
         {
-            bool accountMatch = false;
+            	bool accountMatch = false;
 
-            do
-            {
-                string email, password;
+           	string email, password;
+		string session;
 
                 cout << "** Login to your account **" << endl;
                 cout << "Email: ";
@@ -154,11 +153,10 @@ class Login
 
                 accountMatch = findAccount(email, password);
                 if (accountMatch = true)
-                    startSession(email);
+                    session = startSession(email);
+		    return session;
                 else
-                    cout << "Invalid email or password. Please try again." << endl;
-
-            } while (accountMatch = false); //loops until it finds an account match
+                    return "0";
             
         }
 
