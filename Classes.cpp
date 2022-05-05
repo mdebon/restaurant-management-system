@@ -189,10 +189,16 @@ class Login
             
         }
 
-        void startSession(string email)
+        string startSession(string email)
         {
-            string filename = email + ".txt";
-            ifstream account(filename);
+            	string account = email + ".txt";
+            	ifstream fin (account);
+		string permissionLevel;
+			
+		while(getline(fin, line))
+			permissionLevel = line.substr(0, line.find_first_of(" ", 0));
+		
+		return permissionLevel;
 
         }
 };
