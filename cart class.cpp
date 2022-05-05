@@ -1,7 +1,7 @@
 #include<iostream>
 #include<string>
 #include<fstream>
-#include "menuUpdateMgmt.txt"
+#include "menuUpdateMgmt.cpp"
 
 using namespace std;
 
