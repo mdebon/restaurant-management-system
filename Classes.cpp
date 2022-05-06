@@ -128,75 +128,78 @@ class SignUp
         }
 };
 
-// Marion Debon
+// Marion Debon, Thai La
 class Login
 {
-    public:
-        //The method login() asks the user to enter their email and password until
-        //their email and password match.
-        string login()
-        {
-            bool accountMatch = false;
+public:
+	//The method login() asks the user to enter their email and password until
+	//their email and password match.
+	string login()
+	{
+		bool accountMatch = true;
 
-           	string email, password;
-		    string session;
+		string email, password;
+		string session;
 
-            cout << "** Login to your account **" << endl;
-            cout << "Email: ";
-            cin >> email;
-            cout << "\n";
-            cout << "Password: ";
-            cin >> password;
+		cout << "** Login to your account **" << endl;
+		cout << "Email: ";
+		cin >> email;
+		cout << "\n";
+		cout << "Password: ";
+		cin >> password;
 
-            accountMatch = findAccount(email, password);
-            if (accountMatch = true)
-            {
-                session = startSession(email);
-		        return session;
-            }
-            else
-                return "0";
-        }
+		accountMatch = findAccount(email, password);
+		if (accountMatch = true)
+		{
+			session = startSession(email);
+			return session;
+		}
+		else
+			return "0";
+	}
 
-        //The method findAccount checks if the email entered by the user already
-        // has an account. If it does, it checks if the password entered matches
-        // the one on the account. If email is not found or password is incorrect,
-        // the method returns false.
-        bool findAccount(string email, string pw)
-        {
-            string filename = email + ".txt";
+	//The method findAccount checks if the email entered by the user already
+	// has an account. If it does, it checks if the password entered matches
+	// the one on the account. If email is not found or password is incorrect,
+	// the method returns false.
+	bool findAccount(string email, string pw)
+	{
+		string filename = email + ".txt";
 
-            try
-            {
-                ifstream existingaccount(filename);
-            }
-            catch(const std::exception& e)
-            {
-                return false;
-            }
-            ifstream existingaccount(filename);
-            string line;
-            while(getline(existingaccount, line))
-            {
-                if(line.find(pw) != string::npos)
-                    return true;
-            }
-            return false;
-            
-        }
+		try
+		{
+			ifstream existingaccount(filename);
+		}
+		catch (const std::exception& e)
+		{
+			return false;
+		}
+		ifstream existingaccount(filename);
+		string line;
+		while (getline(existingaccount, line))
+		{
+			if (line.find(pw) != string::npos)
+				return true;
+		}
 
-        string startSession(string email)
-        {
-            string account = email + ".txt";
-            ifstream fin (account);
-		    string permissionLevel, line;
-			
-		    while(getline(fin, line))
-			    permissionLevel = line.substr(0, line.find_first_of(" ", 0));
-		
-		    return permissionLevel;
+		return false;
 
-        }
+	}
+
+	string startSession(string email)
+	{
+		string account = email + ".txt";
+		ifstream fin(account);
+		string permissionLevel, line;
+
+		while (getline(fin, line)) {
+			if (fin.good())
+			{
+				return permissionLevel = line;
+			}
+
+		}
+	}
 };
 //Amy Dixon
 class ReservationManagement
