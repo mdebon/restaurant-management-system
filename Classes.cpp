@@ -438,19 +438,19 @@ class Cart
 			switch (choice)
 			{
 			case 1:
-				menu();
+				Menu();
 				cout << "Item Name " << itemName << " added to cart" << endl;
 				break;
 			case 2:
-				menu();
+				Menu();
 				cout << "Quantity " << quantity << endl;
 				break;
 			case 3:
-				menu();
+				Menu();
 				cout << "Total: $" << itemPrice << endl;
 				break;
 			case 4: 
-				menu();
+				Menu();
 				cout << "Order Confirmation #: " << orderConfirmation << endl;
 				break;
 			}
