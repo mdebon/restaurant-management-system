@@ -292,7 +292,6 @@ class Menu
 	public:
 		void menu()
 		{
-    		int order = 1;
 
     		int itemName1 = 1, itemName2 = 2, itemName3 = 3, itemName4 = 4, itemName5 = 5; //item menu slots
     		const float itemPrice1 = 6.95, itemPrice2 = 5.75, itemPrice3 = 7.25, itemPrice4 = 8.95, itemPrice5 = 4.95; //prices for each item
