@@ -1,17 +1,18 @@
-#include <iostream>
-#include <fstream>
+#include<iostream>
+#include<fstream>
 #include<string>
-#include <ctime>
-#include <chrono>
-#include <iomanip>
-#include <cmath>
+#include<ctime>
+#include<chrono>
+#include<iomanip>
+#include<cmath>
 
 using namespace std;
 
 class MenuUpdateReport
 {
-  public:
-      void menuUpdateReport() {
+	public:
+		void menuUpdateReport()
+		{
 
 
         string itemName;
@@ -37,31 +38,27 @@ class MenuUpdateReport
     
         cout << "-------------------------------------------------------------------------" << endl;
 
-        system("pause");
-
-  }
+  	}
 };
 
-class reservationReport {
+class reservationReport
+{
+	public:
+    	string name;
+    	bool reservationStatus;
+    	string reservationTime;
+    	string reservationDate;
 
-  public:
-    string name;
-    bool reservationStatus;
-    string reservationTime;
-    string reservationDate;
+    	void reservationInfo(){
 
-    void reservationInfo(){
+      	cout << "-------------------------------------------------------------------------" << endl;
 
-      cout << "-------------------------------------------------------------------------" << endl;
-
-      cout << "NAME OF RESERVER : " << name << endl;
-      cout << "DATE OF RESERVATION    : " << reservationDate << endl;
-      cout << "TIME OF RESERVATION  : " << reservationTime << endl;
-      cout << "reservationStatus  :" << reservationStatus << endl;
+      	cout << "NAME OF RESERVER : " << name << endl;
+      	cout << "DATE OF RESERVATION    : " << reservationDate << endl;
+      	cout << "TIME OF RESERVATION  : " << reservationTime << endl;
+      	cout << "reservationStatus  :" << reservationStatus << endl;
     
-      cout << "-------------------------------------------------------------------------" << endl;
-      
-      system("pause");
+      	cout << "-------------------------------------------------------------------------" << endl;
     }
 };
 
@@ -139,25 +136,26 @@ class Login
         //their email and password match.
         string login()
         {
-            	bool accountMatch = false;
+            bool accountMatch = false;
 
            	string email, password;
-		string session;
+		    string session;
 
-                cout << "** Login to your account **" << endl;
-                cout << "Email: ";
-                cin >> email;
-                cout << "\n";
-                cout << "Password: ";
-                cin >> password;
+            cout << "** Login to your account **" << endl;
+            cout << "Email: ";
+            cin >> email;
+            cout << "\n";
+            cout << "Password: ";
+            cin >> password;
 
-                accountMatch = findAccount(email, password);
-                if (accountMatch = true)
-                    session = startSession(email);
-		    return session;
-                else
-                    return "0";
-            
+            accountMatch = findAccount(email, password);
+            if (accountMatch = true)
+            {
+                session = startSession(email);
+		        return session;
+            }
+            else
+                return "0";
         }
 
         //The method findAccount checks if the email entered by the user already
@@ -189,132 +187,127 @@ class Login
 
         string startSession(string email)
         {
-            	string account = email + ".txt";
-            	ifstream fin (account);
-		string permissionLevel;
+            string account = email + ".txt";
+            ifstream fin (account);
+		    string permissionLevel, line;
 			
-		while(getline(fin, line))
-			permissionLevel = line.substr(0, line.find_first_of(" ", 0));
+		    while(getline(fin, line))
+			    permissionLevel = line.substr(0, line.find_first_of(" ", 0));
 		
-		return permissionLevel;
+		    return permissionLevel;
 
         }
 };
 
 class ReservationManagement
 {
-	string name, day, time;
-
-	void AddReservation()
-	{
+    public:
+		string name, day, time;
+	    void AddReservation()
+	    {
 		// Get data from user
 
-		cout << "\nWhat is the reserver name?" << endl;
-		cin >> name;
+		    cout << "\nWhat is the reserver name?" << endl;
+		    cin >> name;
 
-		cout << "\nWhat day would you like to reserve?" << endl;
-		cin >> day;
+		    cout << "\nWhat day would you like to reserve?" << endl;
+		    cin >> day;
 
 
-		cout << "\nWhat time would you like to reserve?" << endl;
-		cin >> time;
-	}
-	void ChangeReservation()
-	{
+		    cout << "\nWhat time would you like to reserve?" << endl;
+		    cin >> time;
+	    }
+	    void ChangeReservation()
+	    {
 		//get data from user
-		string name, day, time;
-		cout << "\nWhat name is the reservation under?" << endl;
-		getline(cin, name);
+		    string name, day, time;
+		    cout << "\nWhat name is the reservation under?" << endl;
+		    getline(cin, name);
 
-		cout << "What is the new day you would like to reserve?" << endl;
-		getline(cin, day);
+		    cout << "What is the new day you would like to reserve?" << endl;
+		    getline(cin, day);
 
-		cout << "\nWhat is the new time you would like to reserve?" << endl;
-		getline(cin, time);
+		    cout << "\nWhat is the new time you would like to reserve?" << endl;
+		    getline(cin, time);
 
-	}
-	void checkStatus()
-	{
-		string day, time;
-		bool name;
-		cout << "Enter resevation name." << endl;
-		cin >> name;
+	    }
+	    void checkStatus()
+	    {
+		    string day, time;
+		    bool name;
+		    cout << "Enter resevation name." << endl;
+		    cin >> name;
 
-		if (name == true)
-		{
-			cout << "Reservation found for " << name << "\t" << day << "\t" << time << endl;
-		}
-		else
-		{
-			cout << "Reservation for" << name << " not found." << endl;
-		}
+		    if (name == true)
+		    {
+			    cout << "Reservation found for " << name << "\t" << day << "\t" << time << endl;
+		    }
+		    else
+		    {
+			    cout << "Reservation for" << name << " not found." << endl;
+		    }
+        }
 
-
-	}
-
-	int main()
-	{
+	    void reservation()
+	    {
 		// Declaration of arrays
-		string time[20], names[20], day[20];
-		int choice = 1;
+		    string time[20], names[20], day[20];
+		    int choice = 1;
 
 
-		while (choice != 0)
-		{
+		    while (choice != 0)
+		    {
 			// User will select a choice
-			cout << "Welcome to RestaurantReserve System!" << endl;
-			cout << "1 - Make Reservation" << endl;
-			cout << "2 - Edit Reservation" << endl;
-			cout << "3 - Check Status" << endl;
-			cout << "0 - Exit \n" << endl;
+		    	cout << "Welcome to RestaurantReserve System!" << endl;
+		    	cout << "1 - Make Reservation" << endl;
+		    	cout << "2 - Edit Reservation" << endl;
+		    	cout << "3 - Check Status" << endl;
+		    	cout << "0 - Exit \n" << endl;
 
 			// User input
-			cin >> choice;
+		    	cin >> choice;
 
-			switch (choice)
-			{
-			case 1:
-				AddReservation();
-				cout << "Date and Time" << day << time << "has been Reserved." << endl;
-				break;
-			case 2:
-				ChangeReservation();
-				cout << "Date and Time" << day << time << "has been Reserved." << endl;
-				break;
+		    	switch (choice)
+		    	{
+		        	case 1:
+		        		AddReservation();
+		        		cout << "Date and Time" << day << time << "has been Reserved." << endl;
+		        		break;
+		        	case 2:
+		        		ChangeReservation();
+		        		cout << "Date and Time" << day << time << "has been Reserved." << endl;
+		        		break;
 			
-			case 3:
-				checkStatus();
-				cout << "Date and Time" << day << time << "has been Reserved." << endl;
-				break;
+		        	case 3:
+		        		checkStatus();
+		        		cout << "Date and Time" << day << time << "has been Reserved." << endl;
+		    		break;
+		        }
+			}
 		}
-		}
-
-
-		system("PAUSE");
-		return 0;
-	}
 };
 
 class Menu
 {
-  void menu()
-  {
-      int order = 1;
+	public:
+		void menu()
+		{
+    		int order = 1;
 
-      int itemName1 = 1, itemName2 = 2, itemName3 = 3, itemName4 = 4, itemName5 = 5; //item menu slots
-      const float itemPrice1 = 6.95, itemPrice2 = 5.75, itemPrice3 = 7.25, itemPrice4 = 8.95, itemPrice5 = 4.95; //prices for each item
-      bool availability1 = 1, availability2 = 1, availability3 = 1, availability4 = 1, availability5 = 1; //if availability is 1, then it is available. 
+    		int itemName1 = 1, itemName2 = 2, itemName3 = 3, itemName4 = 4, itemName5 = 5; //item menu slots
+    		const float itemPrice1 = 6.95, itemPrice2 = 5.75, itemPrice3 = 7.25, itemPrice4 = 8.95, itemPrice5 = 4.95; //prices for each item
+    		bool availability1 = 1, availability2 = 1, availability3 = 1, availability4 = 1, availability5 = 1; //if availability is 1, then it is available. 
   
-      cout << setw(25) << "***** Menu *****\n"
-        << itemName1 << " Pho " << setw(17) << "$" << itemPrice1 << setw(5) << availability1 << endl
-        << itemName2 << " Chalupa " << setw(13) << "$" << itemPrice2 << setw(5) << availability2 << endl
-        << itemName3 << " Croissant " << setw(11) << "$" << itemPrice3 << setw(5) << availability3 << endl
-        << itemName4 << " Krabby Patty " << setw(8) << "$" << itemPrice4 << setw(5) << availability4 << endl
-        << itemName5 << " Monkey D. Luffy " << setw(5) << "$" << itemPrice5 << setw(5) << availability5 << endl;
-  }
+    		cout << setw(25) << "***** Menu *****\n"
+        		<< itemName1 << " Pho " << setw(17) << "$" << itemPrice1 << setw(5) << availability1 << endl
+        		<< itemName2 << " Chalupa " << setw(13) << "$" << itemPrice2 << setw(5) << availability2 << endl
+        		<< itemName3 << " Croissant " << setw(11) << "$" << itemPrice3 << setw(5) << availability3 << endl
+        		<< itemName4 << " Krabby Patty " << setw(8) << "$" << itemPrice4 << setw(5) << availability4 << endl
+        		<< itemName5 << " Monkey D. Luffy " << setw(5) << "$" << itemPrice5 << setw(5) << availability5 << endl;
+		}
 };
 
-class cateringMgmt
+class CateringMgmt
 {
 	public:
 		void editCateringItem()
@@ -348,88 +341,84 @@ class cateringMgmt
 
 class Catering
 {
-  public:
-    void cateringOrder()
-    {
-	      string eventName, cusName;	
-	      double guestNum;	
-	      int numMinutes;	// this is the number of minutes in the event
+	public:
+    	void cateringOrder()
+    	{
+	    	string eventName, cusName;	
+	    	double guestNum;	
+	    	int numMinutes;	// this is the number of minutes in the event
 
 	      //input
-	
-	      cout << "Enter the name of the event " << endl;
-	      getline(cin, eventName);
-	      cout << "Enter the customer's first and last name " << endl;
-	      getline(cin, cusName);
-	      cout << "Enter the number of guests " << endl;
-	      cin >> guestNum;
-	      cout << "Enter the number of minutes in the event " << endl;
-	      cin >> numMinutes;
-	      system("CLS");		//system clears the screen of the inputs
+	    	cout << "Enter the name of the event " << endl;
+	    	getline(cin, eventName);
+	    	cout << "Enter the customer's first and last name " << endl;
+	    	getline(cin, cusName);
+	    	cout << "Enter the number of guests " << endl;
+	    	cin >> guestNum;
+	    	cout << "Enter the number of minutes in the event " << endl;
+	    	cin >> numMinutes;
+	    	system("CLS");		//system clears the screen of the inputs
 
-	      cout << eventName << endl;
-	      cout << "Event estimate for  " << cusName << endl;
+	    	cout << eventName << endl;
+	    	cout << "Event estimate for  " << cusName << endl;
 
-	      int numServers, Cost1;
-	      double CostForOneServer, Test, TotalFoodCost, AverageCost, Cost2, DepositAmount, TotalCost;
+	    	int numServers, Cost1;
+	    	double CostForOneServer, Test, TotalFoodCost, AverageCost, Cost2, DepositAmount, TotalCost;
 
-	      const double CostPerHour = 20.55;
-	      const double CostPerMinute = .34;
-	      const double CostOfDinner = 30.00;
+	    	const double CostPerHour = 20.55;
+	    	const double CostPerMinute = .34;
+	    	const double CostOfDinner = 30.00;
 
 	      // Get Number Of Servers
-	      Test = guestNum / 25;
-	      numServers = ceil(Test);
+	    	Test = guestNum / 25;
+	    	numServers = ceil(Test);
 
 	      // Get Cost Of One Server
-	      Cost1 = (numMinutes / static_cast<double>(60)) * CostPerHour;
-	      Cost2 = (numMinutes % 60) * CostPerMinute;
-	      CostForOneServer = Cost1 + Cost2;
+	    	Cost1 = (numMinutes / static_cast<double>(60)) * CostPerHour;
+	    	Cost2 = (numMinutes % 60) * CostPerMinute;
+	    	CostForOneServer = Cost1 + Cost2;
 
 	       // Get Cost For Food
-	      TotalFoodCost = guestNum * CostOfDinner;
+	    	TotalFoodCost = guestNum * CostOfDinner;
 
 	      // Get Average Cost Per Person
-	      AverageCost = TotalFoodCost / guestNum;
+	    	AverageCost = TotalFoodCost / guestNum;
 
 	      // Get Total Cost
-	      TotalCost = TotalFoodCost + (CostForOneServer * numServers);
+	    	TotalCost = TotalFoodCost + (CostForOneServer * numServers);
 
 	      // Get Deposit Amount (30%)
-	      DepositAmount = TotalCost * .30;
+	    	DepositAmount = TotalCost * .30;
 
 	      // Print values 
-	      cout << "Number Of Server: " << numServers << fixed << setprecision(2) << endl;
-	      cout << "The Cost for Servers: " << setw(5) << CostForOneServer << endl;
-	      cout << "The Cost for Food is: " << setw(5) << TotalFoodCost << endl;
-	      cout << "Avergae Cost Per Person: " << setw(5) << AverageCost << endl;
-	      cout << "\nTotal cost is: " << setw(5) << TotalCost << endl;
+	    	cout << "Number Of Server: " << numServers << fixed << setprecision(2) << endl;
+	    	cout << "The Cost for Servers: " << setw(5) << CostForOneServer << endl;
+	    	cout << "The Cost for Food is: " << setw(5) << TotalFoodCost << endl;
+	    	cout << "Avergae Cost Per Person: " << setw(5) << AverageCost << endl;
+	    	cout << "\nTotal cost is: " << setw(5) << TotalCost << endl;
 
-	      cout << "Please deposite a 30% deposit to reserve the event" << endl;
-	      cout << "The deposit needed is: " << setw(5) << DepositAmount << endl;
+	    	cout << "Please deposite a 30% deposit to reserve the event" << endl;
+	    	cout << "The deposit needed is: " << setw(5) << DepositAmount << endl;
 
-	      return 0;
-    }
+    	}
 };
 
 class Cart
 {
-public:
 	//The cart() is where the user inputs what they would like
 	//from the menu and it will total out the food.
-	void cart()
-	{
-		string itemName;
-		int quantity;
-		string orderConfirmation;
+	public:
+		void cart()
+	    {
+		    string itemName;
+		    int quantity;
+		    string orderConfirmation;
 
-		cout << "---------" << endl;
-		cout << "\tCart\t \n" << endl;
-		cout << "Item Name\n" << itemName << endl;
-		cout << "Quantity\n" << quantity << endl;
-		cout << "Order # \t" << orderConfirmation << endl;
+		    cout << "---------" << endl;
+		    cout << "\tCart\t \n" << endl;
+		    cout << "Item Name\n" << itemName << endl;
+		    cout << "Quantity\n" << quantity << endl;
+		    cout << "Order # \t" << orderConfirmation << endl;
 
-		system("PAUSE");
-
-	}
+	    }
 };
