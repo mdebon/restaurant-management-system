@@ -20,7 +20,7 @@ void customerInterface()
 	cout << "\t PRESS 1 TO MAKE A RESERVATION" << endl;
 	cout << "\t PRESS 2 TO MAKE A CATERING ORDER" << endl;
     	cout << "\t PRESS 3 TO VIEW CART" << endl;
-	cout << "\t PRESS 4 TO EXIT" << endl;
+	cout << "\t PRESS 4 TO LOG OUT" << endl;
 	 
 	cout << "\t PLEASE ENTER YOUR CHOICE: " << endl;
 	cin >> choice1;
@@ -32,19 +32,22 @@ void customerInterface()
 		{
 			ReservationManagement r1;
             		r1.AddReservation();
-            		break;
 		}
         case 2:
 		{
 			Catering c1;
 			c1.cateringOrder();
-			break;
 		}
         case 3:
 		{
 			Cart cart1;
 			cart1.cart();
 		}
+	case 4:
+		{
+			cout << "\t\t\t LOGGED OUT. \n\n\n";
+			break;
+			    
             
     }
 }
@@ -58,7 +61,7 @@ void employeeInterface()
 	cout << "\t\t\t             EMPLOYEE MENU            \n\n\n";
 	cout << "                                                   ";
 	cout << "\t PRESS 1 TO UPDATE RESERVATION" << endl;
-	cout << "\t PRESS 2 TO EXIT" << endl;
+	cout << "\t PRESS 2 TO LOG OUT" << endl;
 	 
 	cout << "\t PLEASE ENTER YOUR CHOICE: " << endl;
 	cin >> choice2;
@@ -70,11 +73,10 @@ void employeeInterface()
 		{
 			ReservationManagement edit;
 			edit.ChangeReservation();
-			break;
 		}
 		case 2:
 		{
-			cout << "\t\t\t THANK YOU !! \n\n\n";
+			cout << "\t\t\t LOGGED OUT. \n\n\n";
 			break;
 		}
 	}
@@ -91,7 +93,7 @@ void managerInterface()
 	cout << "\t PRESS 1 TO EDIT A CATERING ORDER" << endl;
 	cout << "\t PRESS 2 TO REMOVE A CATERING ORDER" << endl;
 	cout << "\t PRESS 3 TO EDIT MENU" << endl;
-	cout << "\t PRESS 4 TO EXIT" << endl;
+	cout << "\t PRESS 4 TO LOG OUT" << endl;
 	 
 	cout << "\t PLEASE ENTER YOUR CHOICE: " << endl;
 	cin >> choice3;
@@ -103,13 +105,11 @@ void managerInterface()
 		{
 			CateringMgmt edit;
 			edit.editCateringItem();
-			break;
 		}
 		case 2:
 		{
 			CateringMgmt del;
 			del.removeCateringItem();
-			break;
 		}
 		case 3:
 		{
@@ -117,7 +117,7 @@ void managerInterface()
 		}
 		case 4:
 		{
-			cout << "\t\t\t THANK YOU !! \n\n\n";
+			cout << "\t\t\t LOGGED OUT. \n\n\n";
 			break;
 		}
 	}
@@ -157,19 +157,16 @@ int main() {
 				managerInterface();
 			else
 				cout << "Invalid email or password." << endl;
-			break;
 		}
 		case 2:
 		{
 			SignUp s1;
 			s1.signUp();
-			break;
 		}
 		case 3:
 		{
 			Menu m;
 			m.menu();
-			break;
 		}
 		case 4: 
 		{
