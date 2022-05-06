@@ -124,6 +124,8 @@ class SignUp
 
             Account newAccount;
             newAccount.createAccount(email, password, name, phone, zip);
+		
+	    cout << "Sign up successful, you can now log in to your new account." << endl;
 
         }
 };
