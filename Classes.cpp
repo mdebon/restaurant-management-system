@@ -417,9 +417,9 @@ class Cart
 	void cart()
 	{
 		string itemName;
-		int quantity;
+		string quantity;
 		string orderConfirmation;
-		double itemPrice;
+		string itemPrice;
 
 		int choice = 1;
 		
