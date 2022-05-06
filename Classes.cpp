@@ -198,7 +198,7 @@ class Login
 
         }
 };
-
+//Amy Dixon
 class ReservationManagement
 {
     public:
@@ -343,7 +343,7 @@ class CateringMgmt
 		}
 
 };
-
+//Amy Dixon
 class Catering
 {
 	public:
@@ -407,7 +407,7 @@ class Catering
 
     	}
 };
-
+//Amy Dixon
 class Cart
 {
 	//The cart() is where the user inputs what they would like
