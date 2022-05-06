@@ -113,13 +113,13 @@ class SignUp
             cout << "** Sign up for a customer account **" << endl;
             cout << "Name: ";
             cin >> name;
-            cout << endl << "Email address: ";
+            cout << endl << "Email address: "<< endl;
             cin >> email;
-            cout << endl << "Set a password: ";
+            cout  << "Set a password: "<< endl;
             cin >> password;
-            cout << endl << "Phone number: ";
+            cout  << "Phone number: "<< endl;
             cin >> phone;
-            cout << endl << "Zip code: ";
+            cout  << "Zip code: "<< endl;
             cin >> zip;
 
             Account newAccount;
