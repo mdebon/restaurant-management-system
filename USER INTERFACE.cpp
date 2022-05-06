@@ -3,24 +3,124 @@
 #include<fstream>
 #include "Classes.cpp"
 
-
 using namespace std;
 
-class Account ;
-class Login;
-void intro();
-class menuUpdateReport;
-class reservationReport;
-class SignUp ;
-class Cart ;
-class ReservationManagementClass ;
-class Menu;
-class Catering;
-class cateringMgmt;
+// This method displays the user interface for a logged in customer.
+void customerInterface()
+{
+	int choice1;
+	cout << "\t\t\t _____________________________________\n\n\n";
+	cout << "\t\t\t   WELCOME TO THE WORLD'S RESTAURANT  \n\n\n";
+	cout << "\t\t\t             CUSTOMER MENU            \n\n\n";
+	cout << "                                                   ";
+	cout << "\t PRESS 1 TO MAKE A RESERVATION" << endl;
+	cout << "\t PRESS 2 TO MAKE A CATERING ORDER" << endl;
+    	cout << "\t PRESS 3 TO VIEW CART" << endl;
+	cout << "\t PRESS 4 TO EXIT" << endl;
+	 
+	cout << "\t PLEASE ENTER YOUR CHOICE: " << endl;
+	cin >> choice1;
+	cout << endl;
 
+    switch(choice1)
+    {
+        case 1:
+		{
+			ReservationManagement r1;
+            		r1.AddReservation();
+            		break;
+		}
+        case 2:
+		{
+			Catering c1;
+			c1.cateringOrder();
+			break;
+		}
+        case 3:
+		{
+			Cart cart1;
+			cart1.cart();
+		}
+            
+    }
+}
 
+// This method displays the user interface for a logged in employer.
+void employeeInterface()
+{
+	int choice2;
+	cout << "\t\t\t _____________________________________\n\n\n";
+	cout << "\t\t\t   WELCOME TO THE WORLD'S RESTAURANT  \n\n\n";
+	cout << "\t\t\t             EMPLOYEE MENU            \n\n\n";
+	cout << "                                                   ";
+	cout << "\t PRESS 1 TO UPDATE RESERVATION" << endl;
+	cout << "\t PRESS 2 TO EXIT" << endl;
+	 
+	cout << "\t PLEASE ENTER YOUR CHOICE: " << endl;
+	cin >> choice2;
+	cout << endl;
+
+	switch(choice2)
+	{
+		case 1:
+		{
+			ReservationManagement edit;
+			edit.ChangeReservation();
+			break;
+		}
+		case 2:
+		{
+			cout << "\t\t\t THANK YOU !! \n\n\n";
+			break;
+		}
+	}
+}
+
+// This method displays the user interface for a logged in manager.
+void managerInterface()
+{
+	int choice3;
+	cout << "\t\t\t _____________________________________\n\n\n";
+	cout << "\t\t\t   WELCOME TO THE WORLD'S RESTAURANT  \n\n\n";
+	cout << "\t\t\t             MANAGER MENU            \n\n\n";
+	cout << "                                                   ";
+	cout << "\t PRESS 1 TO EDIT A CATERING ORDER" << endl;
+	cout << "\t PRESS 2 TO REMOVE A CATERING ORDER" << endl;
+	cout << "\t PRESS 3 TO EDIT MENU" << endl;
+	cout << "\t PRESS 4 TO EXIT" << endl;
+	 
+	cout << "\t PLEASE ENTER YOUR CHOICE: " << endl;
+	cin >> choice3;
+	cout << endl;
+
+	switch(choice3)
+	{
+		case 1:
+		{
+			CateringMgmt edit;
+			edit.editCateringItem();
+			break;
+		}
+		case 2:
+		{
+			CateringMgmt del;
+			del.removeCateringItem();
+			break;
+		}
+		case 3:
+		{
+			// menu update
+		}
+		case 4:
+		{
+			cout << "\t\t\t THANK YOU !! \n\n\n";
+			break;
+		}
+	}
+}
 
 int main() {
+	
 	int choice;
 	cout << "\t\t\t _____________________________________\n\n\n";
 	cout << "\t\t\t   WELCOME TO THE WORLD'S RESTAURANT  \n\n\n";
@@ -29,61 +129,58 @@ int main() {
 	cout << "\t PRESS 1 TO LOGIN" << endl;
 	cout << "\t PRESS 2 TO SIGN UP " << endl;
 	cout << "\t PRESS 3 TO SEE THE MENU" << endl;
-	cout << "\t PRESS 4 TO ORDER CATERING" << endl;
-	cout << "\t PRESS 5 TO MAKE A RESERVATION" << endl;
-	cout << "\t PRESS 6 TO MAKE AN UPDATE IN MENU" << endl;
-	cout << "\t PRESS 7 TO MAKE AN UPDATE IN CATERING  " << endl;
-	cout << "\t PRESS 7 TO MAKE AN UPDATE IN RESERVATION  " << endl;
-	cout << "\t PRESS 8 TO MAKE AN UPDATE IN CATERING  " << endl;
-	cout << "\t PRESS 9 TO SEE YOUR CART " << endl;
-	cout << "\t PRESS 10 TO EXIT" << endl;
+	cout << "\t PRESS 4 TO EXIT" << endl;
 	 
-	cout << "\t PLEASE ENTER YOUR CHOICE:    " << endl;
+	cout << "\t PLEASE ENTER YOUR CHOICE: " << endl;
 	cin >> choice;
 	cout << endl;
 
-	switch (choice)
+	switch(choice)
 	{
-	case 1: 
-		Login;
-		break;
-	case 2:
-		SignUp;
-		break;
-	case 3:
-		Menu;
-		break;
-	case 4:
-		Catering;
-		break;
-	case 5: 
-		ReservationManagementClass;
-		break;
-	case 6:
-		menuUpdateReport;
-		break;
-	case 7:
-		reservationReport;
-		break;
-	case 8:
-		cateringMgmt;
-		break;
-	case 9:
-		Cart;
-		break;
-	case 10: 
-		cout << "\t\t\t THANK YOU !! \n\n\n";
-		break;
-	default:
-		system("cls");
-		cout << "\t\t\t Please select the options above \n\n\n" << endl;
-		main();
+		case 1:
+		{
+			//Allows user to login. When 
+			string permissionLevel;
+			Login l1;
+			permissionLevel = l1.login();
+		
+			if (permissionLevel == "1")
+				customerInterface();
+			else if (permissionLevel == "2")
+				employeeInterface();
+			else if (permissionLevel == "3")
+				managerInterface();
+			else
+				cout << "Invalid email or password." << endl;
+			break;
+		}
+		case 2:
+		{
+			SignUp s1;
+			s1.signUp();
+			break;
+		}
+		case 3:
+		{
+			Menu m;
+			m.menu();
+			break;
+		}
+		case 4: 
+		{
+			cout << "\t\t\t THANK YOU !! \n\n\n";
+			break;
+		}
+		default:
+		{
+			system("cls");
+			cout << "\t\t\t Please select the options above \n\n\n" << endl;
+			main();
+		}
 
 
 	}
-
-	 intro();
-		return 0;
-		system("pause");
+	return 0;
+	system("pause");
 
 }
