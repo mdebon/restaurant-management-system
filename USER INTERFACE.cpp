@@ -47,6 +47,7 @@ void customerInterface()
 		{
 			cout << "\t\t\t LOGGED OUT. \n\n\n";
 			break;
+		}
 			    
             
     }
