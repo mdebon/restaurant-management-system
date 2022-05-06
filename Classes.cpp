@@ -287,6 +287,7 @@ class ReservationManagement
 		}
 };
 
+//Omar Gonzalez
 class Menu
 {
 	public:
@@ -306,21 +307,25 @@ class Menu
 		}
 };
 
+//Omar Gonzalez
 class CateringMgmt
 {
 	public:
+		//allows editing for catering item
 		void editCateringItem()
 		{
 			string itemName;
 			cout << "Select what food you would like to add for catering from the menu: \n";
 			cin >> itemName;
 		}
+		//removes catering item
 		void removeCateringItem()
 		{
 			string itemName; 
 			cout << "Select what food you will like to remove from catering: \n";
 			cin >> itemName; 
 		}
+		//edits the quantity of catering item
 		void editQuantity()
 		{
 			string itemName;
@@ -330,6 +335,7 @@ class CateringMgmt
 			cout << "Enter quantity for selected item: \n";
 			cin >> addQuantity; 
 		}
+		//gives time of when the edit was made
 		void checkCateringHistory()
 		{
 			auto givemetime = chrono::system_clock::to_time_t (chrono::system_clock::now()); 
