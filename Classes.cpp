@@ -407,17 +407,49 @@ class Cart
 	//The cart() is where the user inputs what they would like
 	//from the menu and it will total out the food.
 	public:
-		void cart()
-	    {
-		    string itemName;
-		    int quantity;
-		    string orderConfirmation;
 
-		    cout << "---------" << endl;
-		    cout << "\tCart\t \n" << endl;
-		    cout << "Item Name\n" << itemName << endl;
-		    cout << "Quantity\n" << quantity << endl;
-		    cout << "Order # \t" << orderConfirmation << endl;
+	void cart()
+	{
+		string itemName;
+		int quantity;
+		string orderConfirmation;
+		double itemPrice;
+
+		int choice = 1;
+		
+		while(choice != 0)
+		{
+			cout << "---------" << endl;
+			cout << "\tCart\t \n" << endl;
+			cout << "1 - Item Name\n" << endl;
+			cout << "2 - Quantity\n" << endl;
+			cout << "3 - Total \t" << endl;
+			cout << "4 - Order # \t" << endl;
+			
+			// user input
+			cin >> choice;
+			
+			switch (choice)
+			{
+			case 1:
+				menu();
+				cout << "Item Name " << itemName << " added to cart" << endl;
+				break;
+			case 2:
+				menu();
+				cout << "Quantity " << quantity << endl;
+				break;
+			case 3:
+				menu();
+				cout << "Total: $" << itemPrice << endl;
+				break;
+			case 4: 
+				menu();
+				cout << "Order Confirmation #: " << orderConfirmation << endl;
+				break;
+			}
+		}
+		system("PAUSE");
 
 	    }
 };
