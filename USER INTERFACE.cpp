@@ -150,11 +150,20 @@ int main() {
 			permissionLevel = l1.login();
 		
 			if (permissionLevel == "1")
+			{
+				cout << "You are logged in." << endl;
 				customerInterface();
+			}
 			else if (permissionLevel == "2")
+			{
+				cout << "You are logged in." << endl;
 				employeeInterface();
+			}
 			else if (permissionLevel == "3")
+			{
+				cout << "You are logged in." << endl;
 				managerInterface();
+			}
 			else
 				cout << "Invalid email or password." << endl;
 		}
