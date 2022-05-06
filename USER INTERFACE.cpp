@@ -1,3 +1,7 @@
+// Marion Debon, Thai La
+// This source file is the user interface of the program. It displays the options for the user and uses
+// the classes of the program.
+
 #include<iostream>
 #include<string>
 #include<fstream>
@@ -139,7 +143,8 @@ int main() {
 	{
 		case 1:
 		{
-			//Allows user to login. When 
+			//Allows user to login. If the login process succeeds, the system displays
+			//a different interface depending on the permission level on the account.
 			string permissionLevel;
 			Login l1;
 			permissionLevel = l1.login();
