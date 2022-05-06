@@ -294,7 +294,7 @@ class Menu
 		{
 
     		int itemName1 = 1, itemName2 = 2, itemName3 = 3, itemName4 = 4, itemName5 = 5; //item menu slots
-    		const float itemPrice1 = 6.95, itemPrice2 = 5.75, itemPrice3 = 7.25, itemPrice4 = 8.95, itemPrice5 = 4.95; //prices for each item
+    		const float itemPrice1 = 5.00, itemPrice2 = 4.50, itemPrice3 = 4.50, itemPrice4 = 5.00, itemPrice5 = 5.50; //prices for each item
     		bool availability1 = 1, availability2 = 1, availability3 = 1, availability4 = 1, availability5 = 1; //if availability is 1, then it is available. 
   
     		cout << setw(25) << "***** Menu *****\n"
