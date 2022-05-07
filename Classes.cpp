@@ -310,6 +310,26 @@ class Menu
         		<< itemName4 << " Krabby Patty " << setw(8) << "$" << itemPrice4 << setw(5) << availability4 << endl
         		<< itemName5 << " Monkey D. Luffy " << setw(5) << "$" << itemPrice5 << setw(5) << availability5 << endl;
 		}
+		/*struct Item
+		{
+			string itemName;
+			double itemPrice;
+		};
+		
+		vector<Item> menuItems;
+
+		void viewMenu()
+		{
+			Item m1;
+			m1.itemName = "Pho";
+			m1.itemPrice = 5.00;
+			menuItems.push_back(m1);
+
+			for(int i = 0; i < menuItems.size(); i++)
+			{
+				cout << menuItems[i].itemName << " " << menuItems[i].itemPrice << endl;
+			} 
+		}*/
 };
 
 //Omar Gonzalez
